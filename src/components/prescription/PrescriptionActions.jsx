@@ -1,14 +1,43 @@
 import { Check, FileOutput, Printer, Save, UploadCloud } from "lucide-react";
 import IconButton from "../common/IconButton";
 
-const PrescriptionActions = () => {
+const PrescriptionActions = ({
+  onSaveDraft,
+  onPrint,
+  onUploadDocument,
+  onGeneratePrescription,
+  onMarkComplete,
+}) => {
   return (
     <div className="prescription-actions">
-      <IconButton icon={Save} label="Save Draft" variant="ghost" />
-      <IconButton icon={Printer} label="Print" variant="ghost" />
-      <IconButton icon={UploadCloud} label="Upload Document" variant="ghost" />
-      <IconButton icon={FileOutput} label="Generate Prescription" />
-      <IconButton icon={Check} label="Mark as Complete" />
+      <IconButton
+        icon={Save}
+        label="Save Draft"
+        variant="ghost"
+        onClick={onSaveDraft}
+      />
+      <IconButton
+        icon={Printer}
+        label="Print"
+        variant="ghost"
+        onClick={onPrint}
+      />
+      <IconButton
+        icon={UploadCloud}
+        label="Upload Document"
+        variant="ghost"
+        onClick={onUploadDocument}
+      />
+      <IconButton
+        icon={FileOutput}
+        label="Generate Prescription"
+        onClick={onGeneratePrescription}
+      />
+      <IconButton
+        icon={Check}
+        label="Mark as Complete"
+        onClick={onMarkComplete}
+      />
     </div>
   );
 };

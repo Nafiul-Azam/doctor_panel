@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import BackButton from "../components/common/BackButton";
 import ConsultationNotesForm from "../components/prescription/ConsultationNotesForm";
 import MedicineEntryTable from "../components/prescription/MedicineEntryTable";
@@ -19,6 +19,7 @@ const initialNotes = {
 
 const DoctorPatientDetailsPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const details = useMemo(() => {
     const found = patients.find((patient) => patient.id === id);
@@ -74,7 +75,23 @@ const DoctorPatientDetailsPage = () => {
           <p>24 Dummy Street Area • +12-345 678 9012</p>
         </div>
       </div>
-      <PrescriptionActions />
+      <PrescriptionActions
+        onSaveDraft={() =>
+          navigate(`/doctor/patients/${details.patientId}/action/save-draft`)
+        }
+        onPrint={() =>
+          navigate(`/doctor/patients/${details.patientId}/action/print`)
+        }
+        onUploadDocument={() =>
+          navigate(`/doctor/patients/${details.patientId}/action/upload`)
+        }
+        onGeneratePrescription={() =>
+          navigate(`/doctor/patients/${details.patientId}/action/generate`)
+        }
+        onMarkComplete={() =>
+          navigate(`/doctor/patients/${details.patientId}/action/complete`)
+        }
+      />
     </section>
   );
 };

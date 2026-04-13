@@ -4,6 +4,7 @@ import DoctorDashboardPage from "./pages/DoctorDashboardPage";
 import DoctorMessagesPage from "./pages/DoctorMessagesPage";
 import DoctorOpenSettingsPage from "./pages/DoctorOpenSettingsPage";
 import DoctorPatientDetailsPage from "./pages/DoctorPatientDetailsPage";
+import DoctorPrescriptionActionPage from "./pages/DoctorPrescriptionActionPage";
 import DoctorPanelSettingsPage from "./pages/DoctorPanelSettingsPage";
 import DoctorPatientsPage from "./pages/DoctorPatientsPage";
 import DoctorProfilePage from "./pages/DoctorProfilePage";
@@ -17,6 +18,10 @@ function App() {
         <Route path="dashboard" element={<DoctorDashboardPage />} />
         <Route path="patients" element={<DoctorPatientsPage />} />
         <Route path="patients/:id" element={<DoctorPatientDetailsPage />} />
+        <Route
+          path="patients/:id/action/:actionType"
+          element={<DoctorPrescriptionActionPage />}
+        />
         <Route path="messages" element={<DoctorMessagesPage />} />
         <Route path="profile" element={<DoctorProfilePage />} />
         <Route path="panel-settings" element={<DoctorPanelSettingsPage />} />
