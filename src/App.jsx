@@ -8,7 +8,7 @@ import DoctorPrescriptionActionPage from "./pages/DoctorPrescriptionActionPage";
 import DoctorPanelSettingsPage from "./pages/DoctorPanelSettingsPage";
 import DoctorPatientsPage from "./pages/DoctorPatientsPage";
 import DoctorProfilePage from "./pages/DoctorProfilePage";
-
+import PatientRecords from "./components/patients/PatientRecords";
 function App() {
   return (
     <Routes>
@@ -28,6 +28,7 @@ function App() {
         <Route path="open-settings" element={<DoctorOpenSettingsPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/doctor/dashboard" replace />} />
+      <Route path="/doctor/patient-records" element={<PatientRecords />} />
     </Routes>
   );
 }

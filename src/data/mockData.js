@@ -1,6 +1,7 @@
 import {
   Activity,
   Bell,
+  ClipboardList,
   FilePenLine,
   LayoutDashboard,
   MessageCircle,
@@ -12,6 +13,11 @@ import {
 export const navItems = [
   { label: "Dashboard", path: "/doctor/dashboard", icon: LayoutDashboard },
   { label: "Patients", path: "/doctor/patients", icon: UsersRound },
+  {
+    label: "Patient Record",
+    path: "/doctor/patient-records",
+    icon: ClipboardList,
+  },
   { label: "Messages", path: "/doctor/messages", icon: MessageCircle },
   { label: "Profile", path: "/doctor/profile", icon: UserRound },
 ];
