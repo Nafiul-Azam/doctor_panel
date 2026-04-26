@@ -734,7 +734,7 @@ const PatientRecords = () => {
 
                         <Link
                           className="inline-flex items-center justify-center gap-1 rounded-lg bg-[#0f9aa3] px-2.5 py-1.5 text-[11px] font-black text-white shadow-sm transition hover:bg-[#0f7f87] active:scale-95"
-                          to={`/doctor/patients/${patient.id}/prescription`}
+                          to={`/doctor/patients/${patient.id}/prescriptions`}
                         >
                           <FilePenLine size={12} />
                           Rx
@@ -843,7 +843,7 @@ const PatientRecords = () => {
 
                   <Link
                     className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#0f9aa3] px-3 py-2 text-xs font-black text-white shadow-sm transition hover:bg-[#0f7f87] active:scale-95"
-                    to={`/doctor/patients/${patient.id}/prescription`}
+                    to={`/doctor/patients/${patient.id}/prescriptions`}
                   >
                     <FilePenLine size={14} />
                     Prescription
