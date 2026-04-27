@@ -1,20 +1,44 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import BackButton from "../components/common/BackButton";
 import ConsultationNotesForm from "../components/prescription/ConsultationNotesForm";
-import MedicineEntryTable from "../components/prescription/MedicineEntryTable";
 import PrescriptionActions from "../components/prescription/PrescriptionActions";
-import PrescriptionHeader from "../components/prescription/PrescriptionHeader";
 import { patientDetailsTemplate, patients } from "../data/mockData";
 
-const initialNotes = {
-  symptoms: "",
-  observations: "",
-  diagnosis: "",
+const patientPhoneById = {
+  "P-1001": "+880 1711-100001",
+  "P-1002": "+880 1711-100002",
+  "P-1003": "+880 1711-100003",
+  "P-1004": "+880 1711-100004",
+  "P-1005": "+880 1711-100005",
+  "P-1006": "+880 1711-100006",
+};
+
+const createInitialNotes = (details) => ({
+  patientName: details.patientName || "",
+  patientId: details.patientId || "",
+  mobile: details.mobile || "",
+  age: details.age ? String(details.age) : "",
+  weight: "",
+  date: details.visitDate || "",
+  chiefComplaint: details.complaint || "",
+  history: "",
+  onExamination: "",
+  diagnosis: details.complaint || "",
   advice: "",
-  testRecommendation: "",
   notes: "",
+  finalAdvice: "",
   followUpDate: "",
+  medicines: [{ name: "", dose: "1+0+1", duration: "7 din", instruction: "" }],
+});
+
+const emptyDetails = {
+  ...patientDetailsTemplate,
+  patientName: "",
+  patientId: "",
+  mobile: "",
+  age: "",
+  complaint: "",
 };
 
 const DoctorPatientDetailsPage = () => {
@@ -23,12 +47,13 @@ const DoctorPatientDetailsPage = () => {
 
   const details = useMemo(() => {
     const found = patients.find((patient) => patient.id === id);
-    if (!found) return patientDetailsTemplate;
+    if (!found) return emptyDetails;
 
     return {
       ...patientDetailsTemplate,
       patientName: found.name,
       patientId: found.id,
+      mobile: patientPhoneById[found.id] || "",
       age: found.age,
       complaint: found.complaint,
       assistantNote:
@@ -36,49 +61,32 @@ const DoctorPatientDetailsPage = () => {
     };
   }, [id]);
 
-  const [notes, setNotes] = useState(initialNotes);
-  const [medicines, setMedicines] = useState([
-    { name: "", dose: "", frequency: "", duration: "" },
-  ]);
+  const [notes, setNotes] = useState(() => createInitialNotes(details));
+
+  useEffect(() => {
+    setNotes(createInitialNotes(details));
+  }, [details]);
 
   const updateNote = (key, value) =>
     setNotes((prev) => ({ ...prev, [key]: value }));
 
-  const addMedicineRow = () =>
-    setMedicines((prev) => [
-      ...prev,
-      { name: "", dose: "", frequency: "", duration: "" },
-    ]);
-
-  const updateMedicine = (index, key, value) => {
-    setMedicines((prev) =>
-      prev.map((row, current) => {
-        if (index !== current) return row;
-        return { ...row, [key]: value };
-      }),
-    );
-  };
-
   return (
     <section className="page-grid clinical-page">
-      <BackButton label="Back to Patient List" to="/doctor/patients" />
+      <BackButton label="Back to Patient Record" to="/doctor/patient-records" />
       <div className="clinical-sheet-shell">
-        <PrescriptionHeader key={details.patientId} details={details} />
         <ConsultationNotesForm values={notes} onChange={updateNote} />
-        <MedicineEntryTable
-          medicines={medicines}
-          onAddRow={addMedicineRow}
-          onUpdate={updateMedicine}
-        />
-        <div className="clinical-sheet-footer">
-          <span>CLINIC NAME</span>
-          <p>24 Dummy Street Area • +12-345 678 9012</p>
-        </div>
       </div>
       <PrescriptionActions
         onSaveDraft={() =>
           navigate(`/doctor/patients/${details.patientId}/action/save-draft`)
         }
+        onPreview={() => {
+          window.localStorage.setItem(
+            `preview-rx-${details.patientId}`,
+            JSON.stringify(notes),
+          );
+          navigate(`/doctor/patients/${details.patientId}/action/preview`);
+        }}
         onPrint={() =>
           navigate(`/doctor/patients/${details.patientId}/action/print`)
         }

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   CheckCircle2,
+  Eye,
   FileOutput,
   Printer,
   Save,
@@ -9,7 +10,8 @@ import {
 } from "lucide-react";
 import BackButton from "../components/common/BackButton";
 import GlassCard from "../components/common/GlassCard";
-import { patients } from "../data/mockData";
+import ConsultationNotesForm from "../components/prescription/ConsultationNotesForm";
+import { patientDetailsTemplate, patients } from "../data/mockData";
 
 const actionConfig = {
   "save-draft": {
@@ -26,6 +28,11 @@ const actionConfig = {
     title: "Upload Document",
     description: "Attach lab reports or external files to this consultation.",
     icon: UploadCloud,
+  },
+  preview: {
+    title: "Prescription Preview",
+    description: "Realistic prescription pad preview.",
+    icon: Eye,
   },
   generate: {
     title: "Generate Prescription",
@@ -50,6 +57,33 @@ const DoctorPrescriptionActionPage = () => {
   const generatedId = useMemo(() => {
     if (!patient || actionType !== "generate") return "";
     return `RX-${patient.id}`;
+  }, [actionType, patient]);
+
+  const previewValues = useMemo(() => {
+    if (!patient || actionType !== "preview") return null;
+
+    const savedDraft = window.localStorage.getItem(`preview-rx-${patient.id}`);
+
+    if (savedDraft) {
+      try {
+        return JSON.parse(savedDraft);
+      } catch {
+        // Ignore invalid JSON and use fallback preview values.
+      }
+    }
+
+    return {
+      patientName: patient.name,
+      age: String(patient.age),
+      date: patientDetailsTemplate.visitDate,
+      chiefComplaint: patient.complaint,
+      diagnosis: patient.complaint,
+      medicines: [
+        { name: "", dose: "1+0+1", duration: "7 din", instruction: "" },
+      ],
+      finalAdvice: "",
+      followUpDate: "",
+    };
   }, [actionType, patient]);
 
   useEffect(() => {
@@ -118,6 +152,16 @@ const DoctorPrescriptionActionPage = () => {
         </div>
 
         <p className="action-result-description">{action.description}</p>
+
+        {actionType === "preview" && previewValues ? (
+          <div className="mt-3 overflow-hidden rounded-2xl border border-[#d8ecee] bg-[#f7fdfd] p-2 sm:p-3">
+            <ConsultationNotesForm
+              values={previewValues}
+              onChange={() => {}}
+              previewMode
+            />
+          </div>
+        ) : null}
 
         {actionType === "print" ? (
           <button

@@ -19,8 +19,21 @@ const PrescriptionHeader = ({ details }) => {
     <div className="prescription-paper-head">
       <div className="paper-top-strip">
         <div>
-          <h2>Dr. {details.doctorName.replace("Dr. ", "")}</h2>
-          <p>{details.department}</p>
+          <h2>{details.doctorNameBn || details.doctorName}</h2>
+          <p className="paper-top-dept">
+            {details.hospitalNameBn || details.department}
+          </p>
+          <p className="paper-top-detail">
+            {details.doctorTitleBn || details.department}
+          </p>
+          <p className="paper-top-detail">{details.hospitalNameEn}</p>
+          <p className="paper-top-detail">
+            {details.doctorNameEn || details.doctorName}
+          </p>
+          <p className="paper-top-detail">
+            {details.doctorTitleEn || details.department}
+          </p>
+          <p className="paper-top-detail">{details.designationEn || ""}</p>
         </div>
         <span className="paper-icon-wrap">
           <Stethoscope size={24} />

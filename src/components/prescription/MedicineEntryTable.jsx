@@ -4,15 +4,6 @@ import IconButton from "../common/IconButton";
 const MedicineEntryTable = ({ medicines, onAddRow, onUpdate }) => {
   return (
     <section className="medicine-table-wrap prescription-medicine-block">
-      <div className="section-mini-head medicine-head-row">
-        <h3>Medicines</h3>
-        <IconButton
-          icon={Plus}
-          label="Add Medicine"
-          variant="ghost"
-          onClick={onAddRow}
-        />
-      </div>
       <div className="medicine-table">
         <div className="medicine-row head">
           <span>Medicine</span>

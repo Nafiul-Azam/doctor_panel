@@ -14,7 +14,7 @@ const MobileBottomNav = () => {
           }
         >
           {createElement(item.icon, { size: 18 })}
-          <span>{item.label}</span>
+          <span>{item.mobileLabel || item.label}</span>
         </NavLink>
       ))}
       <span className="floating-light" />

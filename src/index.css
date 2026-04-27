@@ -804,7 +804,7 @@ h4 {
 }
 
 .paper-top-strip h2 {
-  font-size: 1.75rem;
+  font-size: 1.3rem;
   line-height: 1.1;
   color: #fff;
 }
@@ -815,6 +815,24 @@ h4 {
   letter-spacing: 0.24em;
   text-transform: uppercase;
   opacity: 0.95;
+}
+
+.paper-top-strip .paper-top-dept {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  opacity: 0.98;
+  font-weight: 700;
+}
+
+.paper-top-strip .paper-top-detail {
+  margin-top: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  opacity: 0.96;
+  line-height: 1.35;
 }
 
 .paper-icon-wrap {
@@ -1033,6 +1051,16 @@ h4 {
 
 .prescription-actions {
   justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.1rem;
+}
+
+.prescription-actions .icon-btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .action-page {
@@ -1774,7 +1802,7 @@ h4 {
   }
 
   .doctor-page-content {
-    padding-bottom: 5.8rem;
+    padding-bottom: calc(6rem + env(safe-area-inset-bottom));
   }
 
   .panel-header {
@@ -1791,14 +1819,14 @@ h4 {
     position: fixed;
     left: 0.6rem;
     right: 0.6rem;
-    bottom: 0.7rem;
+    bottom: max(0.6rem, env(safe-area-inset-bottom));
     border-radius: 26px;
     border: 1px solid rgba(255, 255, 255, 0.52);
     background: rgba(239, 251, 251, 0.62);
     backdrop-filter: blur(18px);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 0.45rem;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: 0.38rem 0.4rem;
     box-shadow: 0 16px 34px rgba(5, 56, 61, 0.2);
     z-index: 50;
   }
@@ -1811,13 +1839,21 @@ h4 {
     display: grid;
     gap: 0.18rem;
     justify-items: center;
-    padding: 0.45rem 0.2rem;
+    padding: 0.42rem 0.1rem;
     color: var(--text-soft);
-    font-size: 0.67rem;
+    font-size: 0.63rem;
+    line-height: 1.15;
     transition:
       transform 180ms ease,
       color 180ms ease,
       background 180ms ease;
+  }
+
+  .mobile-nav-item span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .mobile-nav-item.active {
@@ -1839,6 +1875,21 @@ h4 {
     pointer-events: none;
   }
 
+  @media (max-width: 420px) {
+    .mobile-bottom-nav {
+      left: 0.45rem;
+      right: 0.45rem;
+      padding: 0.34rem 0.32rem;
+      border-radius: 22px;
+    }
+
+    .mobile-nav-item {
+      font-size: 0.58rem;
+      padding: 0.4rem 0.06rem;
+      gap: 0.14rem;
+    }
+  }
+
   .highlight-grid {
     grid-template-columns: 1fr;
   }
@@ -1854,6 +1905,15 @@ h4 {
   .paper-top-strip p {
     letter-spacing: 0.12em;
     font-size: 0.68rem;
+  }
+
+  .paper-top-strip .paper-top-dept {
+    font-size: 0.64rem;
+    letter-spacing: 0.04em;
+  }
+
+  .paper-top-strip .paper-top-detail {
+    font-size: 0.62rem;
   }
 
   .paper-icon-wrap {
@@ -1915,8 +1975,7 @@ h4 {
   }
 
   .prescription-actions .icon-btn {
-    width: 100%;
-    justify-content: center;
+    width: auto;
   }
 
   .action-result-head {

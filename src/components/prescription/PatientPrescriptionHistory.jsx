@@ -82,7 +82,7 @@ const prescriptionHistory = {
       medicines: "Pain management, hydration support, sleep routine.",
       advice:
         "Avoid stress triggers, reduce screen time, follow-up after 14 days.",
-      doctor: "Dr. Amina Rahman",
+      doctor: "Professor Dr. Md. Tofael Hossain Bhuiyan",
     },
     {
       id: "RX-1001-01",
@@ -91,7 +91,7 @@ const prescriptionHistory = {
       diagnosis: "Headache with nausea",
       medicines: "Paracetamol when needed, oral hydration.",
       advice: "Keep headache diary and maintain sleep schedule.",
-      doctor: "Dr. Amina Rahman",
+      doctor: "Professor Dr. Md. Tofael Hossain Bhuiyan",
     },
   ],
   "P-1002": [
@@ -102,7 +102,7 @@ const prescriptionHistory = {
       diagnosis: "Hypertension",
       medicines: "Continue BP medicine as advised.",
       advice: "Low salt diet, daily BP chart, review after 7 days.",
-      doctor: "Dr. Amina Rahman",
+      doctor: "Professor Dr. Md. Tofael Hossain Bhuiyan",
     },
   ],
   "P-1003": [
@@ -113,7 +113,7 @@ const prescriptionHistory = {
       diagnosis: "Fever with chest discomfort",
       medicines: "CBC, CXR, oxygen monitoring, urgent review.",
       advice: "Return immediately if breathing discomfort increases.",
-      doctor: "Dr. Amina Rahman",
+      doctor: "Professor Dr. Md. Tofael Hossain Bhuiyan",
     },
     {
       id: "RX-1003-01",
@@ -122,7 +122,7 @@ const prescriptionHistory = {
       diagnosis: "Viral fever suspected",
       medicines: "Fever management and hydration support.",
       advice: "Monitor temperature every 6 hours.",
-      doctor: "Dr. Amina Rahman",
+      doctor: "Professor Dr. Md. Tofael Hossain Bhuiyan",
     },
   ],
   "P-1004": [
@@ -133,7 +133,7 @@ const prescriptionHistory = {
       diagnosis: "Gastritis",
       medicines: "Antacid support, meal routine correction.",
       advice: "Avoid spicy food, avoid empty stomach.",
-      doctor: "Dr. Amina Rahman",
+      doctor: "Professor Dr. Md. Tofael Hossain Bhuiyan",
     },
   ],
   "P-1005": [
@@ -144,7 +144,7 @@ const prescriptionHistory = {
       diagnosis: "Post viral weakness",
       medicines: "Vitamin support, hydration, rest.",
       advice: "Review after 7 days if weakness continues.",
-      doctor: "Dr. Amina Rahman",
+      doctor: "Professor Dr. Md. Tofael Hossain Bhuiyan",
     },
   ],
   "P-1006": [
@@ -155,7 +155,7 @@ const prescriptionHistory = {
       diagnosis: "Type-2 diabetes follow-up",
       medicines: "Fasting glucose review, medication adjustment if needed.",
       advice: "Diet chart update and regular glucose monitoring.",
-      doctor: "Dr. Amina Rahman",
+      doctor: "Professor Dr. Md. Tofael Hossain Bhuiyan",
     },
   ],
 };

@@ -18,7 +18,12 @@ function App() {
         <Route index element={<Navigate to="/doctor/dashboard" replace />} />
         <Route path="dashboard" element={<DoctorDashboardPage />} />
         <Route path="patients" element={<DoctorPatientsPage />} />
+        <Route path="patient-records" element={<PatientRecords />} />
         <Route path="patients/:id" element={<DoctorPatientDetailsPage />} />
+        <Route
+          path="patients/:patientId/prescriptions"
+          element={<PatientPrescriptionHistory />}
+        />
         <Route
           path="patients/:id/action/:actionType"
           element={<DoctorPrescriptionActionPage />}
@@ -29,11 +34,6 @@ function App() {
         <Route path="open-settings" element={<DoctorOpenSettingsPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/doctor/dashboard" replace />} />
-      <Route path="/doctor/patient-records" element={<PatientRecords />} />
-      <Route
-        path="/doctor/patients/:patientId/prescriptions"
-        element={<PatientPrescriptionHistory />}
-      />
     </Routes>
   );
 }

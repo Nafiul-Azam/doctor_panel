@@ -11,29 +11,57 @@ import {
 } from "lucide-react";
 
 export const navItems = [
-  { label: "Dashboard", path: "/doctor/dashboard", icon: LayoutDashboard },
-  { label: "Patients", path: "/doctor/patients", icon: UsersRound },
+  {
+    label: "Dashboard",
+    mobileLabel: "Home",
+    path: "/doctor/dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    label: "Patients",
+    mobileLabel: "Patients",
+    path: "/doctor/patients",
+    icon: UsersRound,
+  },
   {
     label: "Patient Record",
+    mobileLabel: "Records",
     path: "/doctor/patient-records",
     icon: ClipboardList,
   },
-  { label: "Messages", path: "/doctor/messages", icon: MessageCircle },
-  { label: "Profile", path: "/doctor/profile", icon: UserRound },
+  {
+    label: "Messages",
+    mobileLabel: "Chats",
+    path: "/doctor/messages",
+    icon: MessageCircle,
+  },
+  {
+    label: "Profile",
+    mobileLabel: "Profile",
+    path: "/doctor/profile",
+    icon: UserRound,
+  },
 ];
 
 export const doctorInfo = {
-  name: "Dr. Amina Rahman",
-  id: "DOC-2487",
-  specialization: "Internal Medicine",
-  department: "General Medicine",
+  name: "Professor Dr. Md. Tofael Hossain Bhuiyan",
+  id: "DOC-7861",
+  specialization: "MS Neuro Surgery, Brain, Nerve, Spine & Stroke Specialist",
+  department: "Professor & Head of Neurosurgery",
   photo:
     "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80",
-  qualification: "MBBS, FCPS (Medicine)",
-  contact: "+880 1712-345678",
-  email: "dr.amina@carebridge.health",
-  bio: "Focused on preventive care, chronic disease management, and compassionate patient communication.",
-  chamber: "CareBridge Clinic, Dhanmondi",
+  qualification: "এমএস নিউরো সার্জারী, ব্রেইন, নার্ভ ও স্পাইন বিশেষজ্ঞ",
+  contact: "+880 1711-000000",
+  email: "dr.tofael@rangpurcmch.org",
+  bio: "Neuro surgery specialist focused on brain, nerve, spine and stroke care with evidence-based treatment planning.",
+  chamber: "রংপুর মেডিকেল কলেজ ও হাসপাতাল, রংপুর",
+  hospitalNameBn: "রংপুর কমিউনিটি মেডিকেল কলেজ হাসপাতাল",
+  doctorNameBn: "অধ্যাপক ডাঃ মোঃ তোফায়েল হোসাইন ভূঁইয়া",
+  doctorTitleBn: "এমএস নিউরো সার্জারী, ব্রেইন, নার্ভ ও স্পাইন বিশেষজ্ঞ",
+  hospitalNameEn: "Rangpur Community Medical College Hospital",
+  doctorNameEn: "Professor Dr. Md. Tofael Hossain Bhuiyan",
+  doctorTitleEn: "MS Neuro Surgery, Brain, Nerve, Spine & Stroke Specialist",
+  designationEn: "Professor & Head of Neurosurgery",
   schedule: [
     { day: "Sun - Tue", hours: "09:00 AM - 01:00 PM" },
     { day: "Wed - Thu", hours: "05:00 PM - 09:00 PM" },
@@ -176,10 +204,17 @@ export const patientDetailsTemplate = {
   gender: "Female",
   complaint: "Persistent fever, fatigue, chest tightness",
   visitDate: "13 Apr 2026",
-  doctorName: "Dr. Amina Rahman",
-  department: "General Medicine",
+  doctorName: "Professor Dr. Md. Tofael Hossain Bhuiyan",
+  department: "Professor & Head of Neurosurgery",
+  hospitalNameBn: "রংপুর কমিউনিটি মেডিকেল কলেজ হাসপাতাল",
+  doctorNameBn: "অধ্যাপক ডাঃ মোঃ তোফায়েল হোসাইন ভূঁইয়া",
+  doctorTitleBn: "এমএস নিউরো সার্জারী, ব্রেইন, নার্ভ ও স্পাইন বিশেষজ্ঞ",
+  hospitalNameEn: "Rangpur Community Medical College Hospital",
+  doctorNameEn: "Professor Dr. Md. Tofael Hossain Bhuiyan",
+  doctorTitleEn: "MS Neuro Surgery, Brain, Nerve, Spine & Stroke Specialist",
+  designationEn: "Professor & Head of Neurosurgery",
   assistantNote:
-    "Patient reports breathing discomfort at night. Oxygen sat dipped to 93% once in waiting zone.",
+    "Patient reports persistent headache with neck pain and dizziness at night. Monitor neuro-vitals and urgent review if weakness progresses.",
 };
 
 export const conversations = [

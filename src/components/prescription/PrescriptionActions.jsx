@@ -1,8 +1,16 @@
-import { Check, FileOutput, Printer, Save, UploadCloud } from "lucide-react";
+import {
+  Check,
+  Eye,
+  FileOutput,
+  Printer,
+  Save,
+  UploadCloud,
+} from "lucide-react";
 import IconButton from "../common/IconButton";
 
 const PrescriptionActions = ({
   onSaveDraft,
+  onPreview,
   onPrint,
   onUploadDocument,
   onGeneratePrescription,
@@ -21,6 +29,12 @@ const PrescriptionActions = ({
         label="Print"
         variant="ghost"
         onClick={onPrint}
+      />
+      <IconButton
+        icon={Eye}
+        label="Preview"
+        variant="ghost"
+        onClick={onPreview}
       />
       <IconButton
         icon={UploadCloud}
