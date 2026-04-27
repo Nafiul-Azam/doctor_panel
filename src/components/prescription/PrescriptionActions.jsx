@@ -45,11 +45,13 @@ const PrescriptionActions = ({
       <IconButton
         icon={FileOutput}
         label="Generate Prescription"
+        className="icon-btn-compact-text"
         onClick={onGeneratePrescription}
       />
       <IconButton
         icon={Check}
         label="Mark as Complete"
+        className="icon-btn-compact-text"
         onClick={onMarkComplete}
       />
     </div>

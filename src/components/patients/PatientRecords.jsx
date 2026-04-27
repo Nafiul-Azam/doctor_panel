@@ -403,10 +403,10 @@ const PatientRecords = () => {
   };
 
   return (
-    <section className="min-h-screen w-full overflow-x-hidden bg-[radial-gradient(circle_at_top_left,#d8fbfb_0%,#efffff_34%,#e9f8f8_70%,#f7ffff_100%)] px-1.5 py-3 text-[#12464d] sm:px-4 md:p-5">
-      <div className="mx-auto w-full max-w-[1500px] space-y-3 sm:space-y-4">
-        <div className="overflow-hidden rounded-[20px] border border-white/80 bg-white/60 shadow-[0_18px_50px_rgba(16,118,126,0.10)] backdrop-blur-2xl sm:rounded-[28px]">
-          <div className="relative overflow-hidden border-b border-white/70 bg-gradient-to-r from-white/85 via-[#e7fbfb]/90 to-[#d9f4f5]/90 px-3 py-4 sm:px-4 md:px-5">
+    <section className="min-h-screen w-full max-w-full overflow-x-hidden bg-[radial-gradient(circle_at_top_left,#d8fbfb_0%,#efffff_34%,#e9f8f8_70%,#f7ffff_100%)] px-1.5 py-3 pb-28 text-[#12464d] sm:px-4 md:p-5">
+      <div className="mx-auto w-full max-w-[1500px] min-w-0 space-y-3 sm:space-y-4">
+        <div className="w-full max-w-full overflow-hidden rounded-[20px] border border-white/80 bg-white/60 shadow-[0_18px_50px_rgba(16,118,126,0.10)] backdrop-blur-2xl sm:rounded-[28px]">
+          <div className="relative w-full max-w-full overflow-hidden border-b border-white/70 bg-gradient-to-r from-white/85 via-[#e7fbfb]/90 to-[#d9f4f5]/90 px-3 py-4 sm:px-4 md:px-5">
             <div className="pointer-events-none absolute -right-16 -top-20 h-52 w-52 rounded-full bg-[#9eecef]/35 blur-3xl" />
 
             <div className="relative flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -429,21 +429,21 @@ const PatientRecords = () => {
                     Doctor Workspace
                   </p>
 
-                  <h1 className="mt-1 text-[18px] font-black leading-tight tracking-tight text-[#12464d] sm:text-xl md:text-2xl">
+                  <h1 className="mt-1 break-words text-[18px] font-black leading-tight tracking-tight text-[#12464d] sm:text-xl md:text-2xl">
                     Patient Record Management
                   </h1>
 
-                  <p className="mt-1 text-[11px] font-semibold leading-5 text-[#5f858a] sm:text-xs md:text-sm">
+                  <p className="mt-1 break-words text-[11px] font-semibold leading-5 text-[#5f858a] sm:text-xs md:text-sm">
                     Compact Excel-style clinical records with patient phone
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 sm:flex-nowrap">
+              <div className="grid w-full grid-cols-2 gap-2 sm:w-auto sm:grid-cols-none sm:auto-cols-max sm:grid-flow-col sm:gap-2">
                 <button
                   type="button"
                   onClick={handlePrint}
-                  className="inline-flex min-h-10 min-w-[92px] flex-1 items-center justify-center gap-1 rounded-xl border border-[#bdebed] bg-white/85 px-2 py-2 text-[11px] font-black text-[#0f7078] shadow-sm transition hover:bg-[#e3fbfb] active:scale-95 sm:min-w-0 sm:flex-none sm:px-3 sm:text-xs"
+                  className="inline-flex min-h-10 min-w-0 w-full items-center justify-center gap-1 rounded-xl border border-[#bdebed] bg-white/85 px-2 py-2 text-[11px] font-black text-[#0f7078] shadow-sm transition hover:bg-[#e3fbfb] active:scale-95 sm:w-auto sm:px-3 sm:text-xs"
                 >
                   <Printer size={14} />
                   <span>Print</span>
@@ -452,7 +452,7 @@ const PatientRecords = () => {
                 <button
                   type="button"
                   onClick={handleExportCsv}
-                  className="inline-flex min-h-10 min-w-[92px] flex-1 items-center justify-center gap-1 rounded-xl border border-[#0f9aa3]/20 bg-[#0f9aa3] px-2 py-2 text-[11px] font-black text-white shadow-[0_10px_24px_rgba(15,154,163,0.22)] transition hover:bg-[#0f7f87] active:scale-95 sm:min-w-0 sm:flex-none sm:px-3 sm:text-xs"
+                  className="inline-flex min-h-10 min-w-0 w-full items-center justify-center gap-1 rounded-xl border border-[#0f9aa3]/20 bg-[#0f9aa3] px-2 py-2 text-[11px] font-black text-white shadow-[0_10px_24px_rgba(15,154,163,0.22)] transition hover:bg-[#0f7f87] active:scale-95 sm:w-auto sm:px-3 sm:text-xs"
                 >
                   <Download size={14} />
                   <span>Export</span>
@@ -461,7 +461,7 @@ const PatientRecords = () => {
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="inline-flex min-h-10 min-w-[92px] flex-1 items-center justify-center gap-1 rounded-xl border border-[#bdebed] bg-white/75 px-2 py-2 text-[11px] font-black text-[#5f858a] shadow-sm transition hover:bg-white hover:text-[#0f7078] active:scale-95 sm:min-w-0 sm:flex-none sm:px-3 sm:text-xs"
+                  className="col-span-2 inline-flex min-h-10 min-w-0 w-full items-center justify-center gap-1 rounded-xl border border-[#bdebed] bg-white/75 px-2 py-2 text-[11px] font-black text-[#5f858a] shadow-sm transition hover:bg-white hover:text-[#0f7078] active:scale-95 sm:col-span-1 sm:w-auto sm:px-3 sm:text-xs"
                 >
                   <RefreshCcw size={14} />
                   <span>Reset</span>
@@ -476,11 +476,11 @@ const PatientRecords = () => {
               Today&apos;s Sheet
             </span>
 
-            <h2 className="mt-3 text-[20px] font-black leading-tight tracking-tight text-[#12464d] sm:text-2xl md:text-3xl">
+            <h2 className="mt-3 break-words text-[20px] font-black leading-tight tracking-tight text-[#12464d] sm:text-2xl md:text-3xl">
               Daily Patient Diagnosis & Treatment Record
             </h2>
 
-            <p className="mt-2 text-[12px] font-semibold leading-6 text-[#5f858a] md:text-sm">
+            <p className="mt-2 break-words text-[12px] font-semibold leading-6 text-[#5f858a] md:text-sm">
               Doctor এক জায়গা থেকে patient ID, phone, diagnosis, history,
               report, prescription summary এবং action button manage করতে পারবে।
             </p>
@@ -519,14 +519,14 @@ const PatientRecords = () => {
           ))}
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-white/80 bg-white/75 p-3 shadow-[0_12px_35px_rgba(16,118,126,0.07)] backdrop-blur-xl">
+        <div className="w-full max-w-full overflow-hidden rounded-2xl border border-white/80 bg-white/75 p-3 shadow-[0_12px_35px_rgba(16,118,126,0.07)] backdrop-blur-xl">
           <div className="mb-2 flex items-center gap-2 text-xs font-black text-[#12464d]">
             <Filter size={15} className="shrink-0 text-[#0f9aa3]" />
             Filter & Search
           </div>
 
-          <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
-            <div className="-mx-1 flex max-w-full gap-2 overflow-x-auto px-1 pb-2 xl:max-w-[62%]">
+          <div className="flex min-w-0 flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
+            <div className="flex w-full max-w-full gap-2 overflow-x-auto pb-2 pr-1 xl:max-w-[62%]">
               {statusFilters.map((status) => (
                 <button
                   key={status}
@@ -550,7 +550,7 @@ const PatientRecords = () => {
               ))}
             </div>
 
-            <div className="flex w-full items-center gap-2 rounded-2xl border border-[#c9eef0] bg-white/95 px-3 py-2.5 shadow-[0_12px_35px_rgba(16,118,126,0.06)] xl:max-w-[420px]">
+            <div className="flex w-full max-w-full min-w-0 items-center gap-2 rounded-2xl border border-[#c9eef0] bg-white/95 px-3 py-2.5 shadow-[0_12px_35px_rgba(16,118,126,0.06)] xl:max-w-[420px]">
               <Search size={16} className="shrink-0 text-[#75a7ac]" />
 
               <input
@@ -558,7 +558,7 @@ const PatientRecords = () => {
                 placeholder="Search name, ID, phone..."
                 value={searchValue}
                 onChange={(event) => setSearchValue(event.target.value)}
-                className="min-w-0 flex-1 bg-transparent text-xs font-bold text-[#12464d] outline-none placeholder:text-[#8fb5b9] md:text-sm"
+                className="min-w-0 flex-1 bg-transparent text-[16px] font-bold text-[#12464d] outline-none placeholder:text-[#8fb5b9] sm:text-sm"
               />
 
               {searchValue && (
@@ -575,7 +575,7 @@ const PatientRecords = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-[20px] border border-white/80 bg-white/80 shadow-[0_22px_70px_rgba(16,118,126,0.10)] backdrop-blur-xl sm:rounded-[28px]">
+        <div className="w-full max-w-full overflow-hidden rounded-[20px] border border-white/80 bg-white/80 shadow-[0_22px_70px_rgba(16,118,126,0.10)] backdrop-blur-xl sm:rounded-[28px]">
           <div className="flex flex-col gap-2 border-b border-[#c9eef0]/80 bg-gradient-to-r from-white via-[#eefdfd] to-[#dff7f8] px-3 py-3 md:flex-row md:items-center md:justify-between md:px-4">
             <div>
               <h3 className="text-base font-black leading-tight tracking-tight text-[#12464d] sm:text-lg">
@@ -763,18 +763,18 @@ const PatientRecords = () => {
             </table>
           </div>
 
-          <div className="grid gap-3 p-3 lg:hidden">
+          <div className="grid w-full max-w-full gap-3 p-3 lg:hidden">
             {filteredRecords.map((patient, index) => (
               <article
                 key={patient.id}
-                className="overflow-hidden rounded-2xl border border-[#c9eef0] bg-white/90 shadow-[0_12px_35px_rgba(16,118,126,0.08)]"
+                className="w-full max-w-full min-w-0 overflow-hidden rounded-2xl border border-[#c9eef0] bg-white/90 shadow-[0_12px_35px_rgba(16,118,126,0.08)]"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#d3eef0] bg-gradient-to-r from-[#efffff] to-[#dff7f8] px-3 py-2.5">
                   <div className="min-w-0">
                     <p className="text-[11px] font-black text-[#0f8f99]">
-                      #{index + 1} • {patient.serial}
+                      #{index + 1} • {patient.serial} • {patient.timeSlot}
                     </p>
-                    <h4 className="mt-0.5 truncate text-sm font-black text-[#12464d]">
+                    <h4 className="mt-0.5 break-words text-sm font-black text-[#12464d]">
                       {patient.name}
                     </h4>
                   </div>
@@ -789,61 +789,88 @@ const PatientRecords = () => {
                   </span>
                 </div>
 
-                <div className="grid gap-2 px-3 py-3 text-xs">
-                  <div className="flex flex-wrap gap-2">
-                    <span className="inline-flex rounded-md bg-[#e3fbfb] px-2 py-1 text-[10px] font-black text-[#0f8f99] ring-1 ring-[#bdebed]">
-                      {patient.id}
-                    </span>
+                <div className="grid min-w-0 gap-2 px-3 py-3 text-xs">
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    <div className="min-w-0 rounded-xl border border-[#d3eef0] bg-white px-2.5 py-2">
+                      <p className="text-[10px] font-black uppercase tracking-wide text-[#75a7ac]">
+                        Patient ID
+                      </p>
+                      <p className="mt-1 break-words text-[11px] font-black text-[#0f8f99]">
+                        {patient.id}
+                      </p>
+                    </div>
+
                     <a
                       href={`tel:${patient.phone}`}
-                      className="inline-flex min-w-0 items-center gap-1 rounded-md bg-white px-2 py-1 text-[10px] font-black text-[#5f858a] ring-1 ring-[#d3eef0]"
+                      className="min-w-0 rounded-xl border border-[#d3eef0] bg-white px-2.5 py-2"
                     >
-                      <PhoneCall size={10} className="shrink-0" />
-                      <span className="truncate">{patient.phone}</span>
+                      <p className="text-[10px] font-black uppercase tracking-wide text-[#75a7ac]">
+                        Phone
+                      </p>
+                      <p className="mt-1 inline-flex min-w-0 items-center gap-1 break-all text-[11px] font-bold leading-5 text-[#5f858a]">
+                        <PhoneCall size={10} className="shrink-0" />
+                        <span className="min-w-0 break-all">
+                          {patient.phone}
+                        </span>
+                      </p>
                     </a>
                   </div>
 
                   <div className="rounded-xl border border-[#d3eef0] bg-[#f7ffff] px-2.5 py-2">
-                    <span className="text-[10px] font-black text-[#75a7ac]">
+                    <p className="text-[10px] font-black uppercase tracking-wide text-[#75a7ac]">
                       Problem
-                    </span>
-                    <p className="mt-1 font-bold leading-5 text-[#12464d]">
+                    </p>
+                    <p className="mt-1 break-words text-[11px] font-bold leading-5 text-[#12464d]">
                       {patient.complaint}
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl border border-[#d3eef0] bg-white px-2.5 py-2">
+                    <p className="text-[10px] font-black uppercase tracking-wide text-[#75a7ac]">
+                      Diagnosis
+                    </p>
+                    <p className="mt-1 break-words text-[11px] font-bold leading-5 text-[#12464d]">
+                      {patient.diagnosis}
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl border border-[#d3eef0] bg-white px-2.5 py-2">
+                    <p className="text-[10px] font-black uppercase tracking-wide text-[#75a7ac]">
+                      History
+                    </p>
+                    <p className="mt-1 break-words text-[11px] font-semibold leading-5 text-[#5f858a]">
+                      {patient.history}
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                     <div className="rounded-xl border border-[#d3eef0] bg-white px-2.5 py-2">
-                      <span className="text-[10px] font-black text-[#75a7ac]">
-                        Diagnosis
-                      </span>
-                      <p className="mt-1 text-[11px] font-bold leading-5 text-[#12464d]">
-                        {patient.diagnosis}
+                      <p className="text-[10px] font-black uppercase tracking-wide text-[#75a7ac]">
+                        Lab / Report
+                      </p>
+                      <p className="mt-1 break-words text-[11px] font-semibold leading-5 text-[#5f858a]">
+                        {patient.lab}
                       </p>
                     </div>
+
                     <div className="rounded-xl border border-[#d3eef0] bg-white px-2.5 py-2">
-                      <span className="text-[10px] font-black text-[#75a7ac]">
-                        Lab
-                      </span>
-                      <p className="mt-1 text-[11px] font-semibold leading-5 text-[#5f858a]">
-                        {patient.lab}
+                      <p className="text-[10px] font-black uppercase tracking-wide text-[#75a7ac]">
+                        Visit Summary
+                      </p>
+                      <p className="mt-1 break-words text-[11px] font-semibold leading-5 text-[#5f858a]">
+                        Age {patient.age} • Last {patient.lastVisit}
                       </p>
                     </div>
                   </div>
 
                   <div className="rounded-xl border border-[#bdebed] bg-[#e9fbfb] px-2.5 py-2">
-                    <span className="text-[10px] font-black text-[#0f8f99]">
+                    <p className="text-[10px] font-black uppercase tracking-wide text-[#0f8f99]">
                       Prescription
-                    </span>
-                    <p className="mt-1 text-[11px] font-semibold leading-5 text-[#12464d]">
+                    </p>
+                    <p className="mt-1 break-words text-[11px] font-semibold leading-5 text-[#12464d]">
                       {patient.prescription}
                     </p>
                   </div>
-
-                  <p className="text-[10px] font-bold text-[#6d969a]">
-                    Age {patient.age} • Visit {patient.timeSlot} • Last{" "}
-                    {patient.lastVisit}
-                  </p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-2 border-t border-[#d3eef0] bg-[#f7ffff] px-3 py-3 sm:grid-cols-2">
